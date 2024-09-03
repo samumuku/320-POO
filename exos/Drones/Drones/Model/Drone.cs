@@ -3,7 +3,7 @@
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
     public partial class Drone
     {
-        public static readonly int FULLCHARGE = 1000;   // Charge maximale de la batterie
+        private static readonly int FULLCHARGE = 1000;   // Charge maximale de la batterie
         private int _charge;                            // La charge actuelle de la batterie
         private string _name;                           // Un nom
         private int _x;                                 // Position en X depuis la gauche de l'espace aérien
