@@ -56,5 +56,10 @@ namespace Drones
             this.Update(ticker.Interval);
             this.Render();
         }
+
+        private void AirSpace_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
