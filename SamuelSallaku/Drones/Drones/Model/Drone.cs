@@ -3,32 +3,31 @@
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
     public partial class Drone
     {
-        private static readonly int FULLCHARGE = 1000;   // Charge maximale de la batterie
-        private int _charge;                            // La charge actuelle de la batterie
-        private string _name;                           // Un nom
-        private int _x;                                 // Position en X depuis la gauche de l'espace aérien
-        private int _y;                                 // Position en Y depuis le haut de l'espace aérien
+        Random alea = new Random();
 
-        // Constructeur
-        public Drone(int x, int y, string name)
-        {
-            _x = x;
-            _y = y;
-            _name = name;
-            _charge = GlobalHelpers.alea.Next(FULLCHARGE); // La charge initiale de la batterie est choisie aléatoirement
-        }
-        public int X { get { return _x;} }
-        public int Y { get { return _y;} }
-        public string Name { get { return _name;} }
+        public int charge = 1000;                     // La charge actuelle de la batterie
+        public string name;                           // Un nom
+        public int x ;                                // Position en X depuis la gauche de l'espace aérien
+        public int y;                                 // Position en Y depuis le haut de l'espace aérien
+
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-            _x += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
-            _y += GlobalHelpers.alea.Next(-2, 3);       // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
-            _charge--;                                  // Il a dépensé de l'énergie
+            x += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
+            y += alea.Next(-2, 3);                     // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
+            charge--;                                  // Il a dépensé de l'énergie
         }
 
+    }
+    public partial class Buliding
+    {
+        public int charge = 1000;
+        public int x;
+        public int y;
+        public int width;
+        public int height;
+        public string color;
     }
 }
