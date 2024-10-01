@@ -17,6 +17,7 @@ namespace Drones
             List<Buliding> bulidings = new List<Buliding>();
             List<Factory> factorys = new List<Factory>();
             List<Store> stores = new List<Store>();
+            List<Rectangle> rectangles = new List<Rectangle>();
             Drone drone = new Drone();
             Buliding buliding = new Buliding();
             Buliding buliding2 = new Buliding();
@@ -40,17 +41,50 @@ namespace Drones
             store.y = 130;
             store.x = 490;
 
+            Rectangle r1 = new Rectangle(10, 10, 100, 150);
+            Rectangle r2 = new Rectangle(30, 100, 150, 100);
+            Rectangle r3 = new Rectangle(200, 300, 50, 50);
+
+            r1.IntersectsWith(r2); // true
+            r1.IntersectsWith(r3); // false
 
 
             Drone drone2 = new Drone();
+            drone2.x = 570;
+            drone2.y = 100;
+            drone2.name = "gonzalo";
             Drone drone3 = new Drone();
+            drone3.x = 522;
+            drone3.y = 100;
+            drone3.name = "ben";
             Drone drone4 = new Drone();
+            drone4.x = 250;
+            drone4.y = 100;
+            drone4.name = "ben";
             Drone drone5 = new Drone();
+            drone5.x = 200;
+            drone5.y = 100;
+            drone5.name = "ben";
             Drone drone6 = new Drone();
+            drone6.x = 50;
+            drone6.y = 100;
+            drone6.name = "ben";
             Drone drone7 = new Drone();
+            drone7.x = 83;
+            drone7.y = 100;
+            drone7.name = "ben";
             Drone drone8 = new Drone();
+            drone8.x = 320;
+            drone8.y = 100;
+            drone8.name = "ben";
             Drone drone9 = new Drone();
+            drone9.x = 299;
+            drone9.y = 100;
+            drone9.name = "ben";
             Drone drone10 = new Drone();
+            drone10.x = 10;
+            drone10.y = 100;
+            drone10.name = "ben";
 
             fleet.Add(drone2);
             fleet.Add(drone3);
@@ -75,7 +109,9 @@ namespace Drones
             }
 
             // Démarrage
-            Application.Run(new AirSpace(fleet,bulidings,factorys,stores));
+            Application.Run(new AirSpace(fleet,bulidings,factorys,stores,rectangles));
+
+
         }
     }
 }
