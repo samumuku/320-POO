@@ -96,6 +96,7 @@ namespace Drones
             fleet.Add(drone9);
             fleet.Add(drone10);
 
+
             try
             {
                 if(fleet.Count() >= 10)

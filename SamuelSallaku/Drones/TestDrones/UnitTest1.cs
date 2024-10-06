@@ -31,6 +31,8 @@ namespace TestDrones
             Assert.AreEqual(EvacuationState.Free, drone.GetEvacuationState());
 
 
+
+
         }
 
     }

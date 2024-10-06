@@ -32,6 +32,7 @@
         public int x ;                                // Position en X depuis la gauche de l'espace aérien
         public int y;                                 // Position en Y depuis le haut de l'espace aérien
 
+        private EvacuationState evacuationState = EvacuationState.Free;
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
@@ -44,37 +45,38 @@
 
         public bool Evacuate(Rectangle zone)
         {
-            return true;
+            // Check if the drone is inside the no-fly zone
+            if (x >= zone.Left && x <= zone.Right && y >= zone.Top && y <= zone.Bottom)
+            {
+                evacuationState = EvacuationState.Evacuating;
+
+                // Move the drone away from the no-fly zone (simple logic: move towards the nearest edge)
+                if (x < zone.Left) x--; // Move left
+                if (x > zone.Right) x++; // Move right
+                if (y < zone.Top) y--; // Move up
+                if (y > zone.Bottom) y++; // Move down
+
+                // Still evacuating if within the zone
+                return false;
+            }
+            else
+            {
+                // Successfully evacuated
+                evacuationState = EvacuationState.Evacuated;
+                return true;
+            }
         }
 
         public void FreeFlight()
         {
-            
+            // Reset evacuation state to free flight
+            evacuationState = EvacuationState.Free;
         }
 
         public EvacuationState GetEvacuationState()
         {
-           return EvacuationState.Free;
+            return evacuationState;
         }
-
-        /*public void FreeFlight()
-        { 
-            Console.WriteLine("e");
-        }
-        public bool Evacuate(Rectangle zone)
-        { 
-            return true;
-        }
-
-        public void GetEvacuationState()
-        {  
-            Console.WriteLine("e");
-        }
-
-        EvacuationState IExpellable.GetEvacuationState()
-        {
-            return EvacuationState.Free;
-        }*/
     }
     public partial class Buliding
     {

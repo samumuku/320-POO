@@ -19,7 +19,7 @@ namespace Drones
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(List<Drone> fleet, List<Buliding> bulidings, List<Factory> factorys, List<Store> stores)
+        public AirSpace(List<Drone> fleet, List<Buliding> bulidings, List<Factory> factorys, List<Store> stores, List<Rectangle> rectangles)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
